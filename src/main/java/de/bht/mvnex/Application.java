@@ -2,9 +2,15 @@ package de.bht.mvnex;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 
 public class Application {
-    
+
+    public int countWords(String words) {
+        String[] separateWords = StringUtils.split(words, " ");
+        return (separateWords == null) ? 0: separateWords.length;
+    }
+
     public void greet(){
         List<String> greetings = new ArrayList<>();
         greetings.add("Moderne Softwareentwicklung");
@@ -14,8 +20,6 @@ public class Application {
         }
     }
 
-
-    
     public Application() {
         System.out.println ("Inside Application");
     }
@@ -25,5 +29,7 @@ public class Application {
     	System.out.println ("Starting Application");
 	    Application app = new Application();
         app.greet();
+        int count = app.countWords("I develop modern software");
+        System.out.println("Word Count: " + count);
     }
 }
